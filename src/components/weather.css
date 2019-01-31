@@ -1,0 +1,23 @@
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+.loading {
+    display: block;
+    height: 50px;
+    width: 50px;
+    border-style: solid;
+    border-top-style: none;
+    border-width: 3px;
+    border-radius: 50%;
+    border-color: #0099ff;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    margin-top: 50px;
+    animation-name: spin;
+    animation-duration: 1s;
+}
