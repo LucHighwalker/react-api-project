@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function getSymbol(symbol) {
   switch (symbol) {
@@ -32,13 +33,29 @@ function getTemperature(kelvin, symbol) {
   return parseFloat(temp).toFixed(2);
 }
 
-export default function Temp(props) {
+function Temp(props) {
+  const { tempMin, tempMax, symbol } = props;
+
   return (
     <div>
-      Temp Min: {getTemperature(props.temp_min, props.symbol)}
-      &nbsp;{getSymbol(props.symbol)}
-      &nbsp;Max: {getTemperature(props.temp_max, props.symbol)}
-      &nbsp;{getSymbol(props.symbol)}
+      Temp Min:
+      {' '}
+      {getTemperature(tempMin, symbol)}
+      &nbsp;
+      {getSymbol(symbol)}
+      &nbsp;Max:
+      {' '}
+      {getTemperature(tempMax, symbol)}
+      &nbsp;
+      {getSymbol(symbol)}
     </div>
   );
 }
+
+Temp.propTypes = {
+  tempMin: PropTypes.number.isRequired,
+  tempMax: PropTypes.number.isRequired,
+  symbol: PropTypes.string.isRequired,
+};
+
+export default Temp;
